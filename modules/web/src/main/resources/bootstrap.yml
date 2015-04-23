@@ -1,0 +1,19 @@
+configuration:
+  instance:
+    id: 1
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: demo.app
+  rabbitmq:
+      host: turtle.rmq.cloudamqp.com
+      port: 5672
+      username: vuyqbzgk
+      password: 3V8RBaIRNIZ_5BuAAJEAhA6yef3qhhvl
+      virtualHost: vuyqbzgk
+  cloud:
+    config:
+      uri: http://localhost:8888/configs

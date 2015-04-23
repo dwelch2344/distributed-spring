@@ -1,0 +1,23 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: demo-config-service
+  profiles:
+    active: native
+  # required for Spring Cloud Bus
+  rabbitmq:
+    host: turtle.rmq.cloudamqp.com
+    port: 5672
+    username: vuyqbzgk
+    password: 3V8RBaIRNIZ_5BuAAJEAhA6yef3qhhvl
+    virtualHost: vuyqbzgk
+  cloud:
+    config:
+      server:
+        prefix: /configs
+        native:
+          searchLocations: /Users/dave/workspace/oss/distributed-spring/modules/config-server/src/main/resources/testConfigs
+#        git :
+#          uri: https://github.com/joshlong/microservices-lab-configuration
