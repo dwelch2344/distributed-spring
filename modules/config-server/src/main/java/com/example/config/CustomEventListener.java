@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class CustomEventListener implements ApplicationListener<CustomRemoteEvent> {
-
     @Override
     public void onApplicationEvent(CustomRemoteEvent event) {
         log.info("Custom event received!");

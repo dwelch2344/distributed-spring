@@ -12,7 +12,7 @@ spring:
       host: turtle.rmq.cloudamqp.com
       port: 5672
       username: vuyqbzgk
-      password: 3V8RBaIRNIZ_5BuAAJEAhA6yef3qhhvl
+      password: gCW8skeOvvhyy2p67vtKUyl1sVpHIRso
       virtualHost: vuyqbzgk
   cloud:
     config:

@@ -1,10 +1,12 @@
 package com.example.web;
 
+import com.example.common.CustomDataType;
 import com.example.common.CustomRemoteEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +28,9 @@ public class DummyController {
     @Autowired
     private ApplicationEventPublisher publisher;
 
+    @Autowired
+    private ApplicationContext ctx;
+
     @RequestMapping("/name")
     public String projectName() {
         return this.projectName;
@@ -34,8 +39,6 @@ public class DummyController {
     @RequestMapping("/foo")
     public void foo(){
         log.info("Publishing custom event");
-        publisher.publishEvent(new CustomRemoteEvent(this, instanceId, new HashMap<String, String>(){{
-            put("message", "this is a test!");
-        }}));
+        publisher.publishEvent(new CustomRemoteEvent(this, ctx.getId(), new CustomDataType("David", "Welch")));
     }
 }

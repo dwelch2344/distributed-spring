@@ -7,14 +7,16 @@ import org.springframework.cloud.bus.event.RemoteApplicationEvent;
  */
 public class CustomRemoteEvent extends RemoteApplicationEvent {
 
-    private Object payload;
+    private CustomDataType payload;
 
-    public CustomRemoteEvent(Object source, String originService, Object payload) {
+    public CustomRemoteEvent() {}
+
+    public CustomRemoteEvent(Object source, String originService, CustomDataType payload) {
         super(source, originService);
         this.payload = payload;
     }
 
-    public Object getPayload() {
+    public CustomDataType getPayload() {
         return payload;
     }
 
