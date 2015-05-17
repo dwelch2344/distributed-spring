@@ -1,19 +1,19 @@
 server:
-  port: 8888
+  port: 8889
 
 eureka:
   dashboard:
     path: /dashboard
   instance:
-    hostname: peer1
+    hostname: peer2
     leaseRenewalIntervalInSeconds: 3
   client:
       serviceUrl:
           defaultZone: ${eureka.server.serviceUrl:http://localhost:${server.port}/eureka/}
   server:
     serviceUrl:
-        defaultZone: http://localhost:${server.port}/eureka/
-        peer2: http://peer2/eureka/
+        defaultZone: http://localhost:8888/eureka/
+        peer1: http://peer1/eureka/
     waitTimeInMsWhenSyncEmpty: 0
 
 

@@ -12,5 +12,11 @@
 
     <artifactId>common</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+            <version>${spring.cloud.version}</version>
+        </dependency>
+    </dependencies>
 </project>
