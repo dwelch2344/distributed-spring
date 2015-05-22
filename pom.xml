@@ -26,11 +26,13 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <usertype-core.version>3.2.0.GA</usertype-core.version>
+        <usertype-coere.version>3.2.0.GA</usertype-coere.version>
         <zrware.common.version>2.0.0-SNAPSHOT</zrware.common.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.cloud.version>1.0.0.RELEASE</spring.cloud.version>
-        <start-class>com.zrware.DefaultMain</start-class>
+        <docker.image.prefix>distSpring</docker.image.prefix>
+        <start-class>com.example.NoopStartClass</start-class>
+        <docker.image.id>OVERRIDE_ME</docker.image.id>
     </properties>
 
 
@@ -116,6 +118,22 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.2.3</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${docker.image.id}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
                 </configuration>
             </plugin>
         </plugins>

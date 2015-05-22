@@ -4,7 +4,7 @@ info:
       id: 1
 
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
 
 eureka:
   instance:
@@ -13,7 +13,7 @@ eureka:
     path: /dashboard
   client:
     serviceUrl:
-      defaultZone: ${eureka.server.serviceUrl:http://localhost:8889/eureka/}
+      defaultZone: ${EUREKA_URL:http://localhost:8889/eureka/}
 
 spring:
   profiles:

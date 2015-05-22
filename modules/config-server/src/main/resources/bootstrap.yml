@@ -1,19 +1,16 @@
 server:
-  port: 8888
+  port: ${SERVER_PORT:8888}
 
 eureka:
   dashboard:
     path: /dashboard
   instance:
-    hostname: peer1
+    hostname: ${INSTANCE_ID:unknown}
     leaseRenewalIntervalInSeconds: 3
   client:
       serviceUrl:
-          defaultZone: ${eureka.server.serviceUrl:http://localhost:${server.port}/eureka/}
+          defaultZone: ${EUREKA_PEER:http://localhost:8889/eureka/}
   server:
-    serviceUrl:
-        defaultZone: http://localhost:${server.port}/eureka/
-        peer2: http://peer2/eureka/
     waitTimeInMsWhenSyncEmpty: 0
 
 
@@ -34,6 +31,6 @@ spring:
       server:
         prefix: /configs
         native:
-          searchLocations: /Users/dave/workspace/oss/distributed-spring/modules/config-server/src/main/resources/testConfigs
+          searchLocations: ${SEARCH_LOCATIONS:/Users/dave/workspace/oss/distributed-spring/modules/config-server/src/main/resources/testConfigs}
 #        git :
 #          uri: https://github.com/joshlong/microservices-lab-configuration

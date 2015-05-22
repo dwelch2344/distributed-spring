@@ -18,6 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>com.example.config.ConfigServer</start-class>
         <java.version>1.8</java.version>
+
+        <docker.image.id>configServer</docker.image.id>
     </properties>
 
     <dependencies>
@@ -61,8 +63,6 @@
         </dependency>
         -->
     </dependencies>
-
-
 
     <repositories>
         <repository>
